@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebFood</title>
+
+
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            background-image: url(images/por-burger.png);
+            background-size: cover;
+            background-position: center;
+        }
+
+        #main-header {
+            height: 5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            /* background-color: rgba(255, 255, 255, 0.186); */
+            padding: 0 5%;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        #logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            font-family: "Cooper";
+            color: rgb(255, 255, 255);
+            text-transform: uppercase;
+        }
+
+        .menu-btn {
+            width: 2.5rem;
+            height: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            display: none;
+        }
+
+        .menu-btn span {
+            width: 100%;
+            height: 3px;
+            background-color: white;
+        }
+
+        #main-header ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #main-header li {
+            margin: 0 1rem;
+        }
+
+        #main-header nav a {
+            font-size: 1.25rem;
+            color: white;
+        }
+
+        #main-header nav a:hover {
+            color: rgba(255, 255, 255, 0.571);
+        }
+
+        #nav-btn {
+            color: white;
+            font-size: 1.3rem;
+            padding: 0.7rem 1rem;
+            border: 1px solid white;
+            border-radius: 0.5rem;
+        }
+
+        #nav-btn:hover {
+            background-color: rgba(255, 255, 255, 0.355);
+            box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.382);
+        }
+
+        main h1 {
+            text-align: center;
+            font-size: 3rem;
+            color: white;
+            padding-top: 30px;
+        }
+
+        #side-drawer {
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+
+        #side-drawer:target {
+            display: block;
+        }
+
+        #side-drawer header {
+            height: 5rem;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 0 5%;
+        }
+
+        #side-drawer ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 7rem 1rem;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #side-drawer li {
+            margin: 0.6rem 0;
+        }
+
+        #side-drawer a {
+            color: white;
+            font-size: 1.6rem;
+        }
+
+        #products {
+            width: 80%;
+            margin: 2rem auto;
+        }
+
+        #products ul {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .food-items {
+            background-color: rgba(153, 117, 68, 0.362);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .food-items img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .food-items-content {
+            padding: 1rem;
+            text-align: center;
+            color: white;
+        }
+
+        .btn {
+            color: white;
+            font-size: 1rem;
+            padding: 0.5rem 1.0rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid white;
+            border-radius: 8px;
+            background-color: rgba(255, 255, 255, 0.116);
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.382);
+        }
+
+        footer {
+            /* background: linear-gradient(70deg, rgba(49, 49, 49, 0.83), rgba(39, 39, 39, 0.818)); */
+            background-color: rgba(0, 0, 0, 0.301);
+            padding: 1.7rem;
+        }
+
+        footer p {
+            color: white;
+            text-align: center;
+            font-size: large;
+            margin-bottom: 2.3rem;
+            padding-left: 2.7rem;
+        }
+
+        footer ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        footer li {
+            list-style: none;
+            width: 2.7rem;
+            height: 2.7rem;
+            margin: 0 2rem;
+        }
+
+        footer img {
+            width: 100%;
+            height: 100%;
+        }
+
+        footer .copyr {
+            padding-top: 1.5rem;
+        }
+
+
+        @media (max-width: 30rem) {
+
+            main h1 {
+                font-size: 1.9rem;
+            }
+
+            #main-header ul,
+            #main-header #nav-btn {
+                display: none;
+            }
+
+            .menu-btn {
+                display: flex;
+            }
+
+            #products ul {
+                grid-template-columns: 100%;
+            }
+
+            footer p {
+                padding-left: 0;
+            }
+
+            footer li {
+                margin-left: 0;
+                width: 2.5rem;
+                height: 2.5rem;
+            }
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+    <header id="main-header">
+        <a href="index.html" id="logo">WebFood</a>
+        <nav>
+            <ul>
+                <li>
+                    <a href="#">Browse Meals</a>
+                </li>
+                <li>
+                    <a href="#">My Orders</a>
+                </li>
+                <li>
+                    <a href="#">About Us</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div>
+            <a href="#" id="nav-btn">Order Now</a>
+        </div>
+
+        <a href="#side-drawer" class="menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </a>
+
+    </header>
+    <hr>
+
+    <aside id="side-drawer">
+        <header>
+            <a href="#" class="menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </a>
+        </header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="#">Browse Meals</a>
+                </li>
+                <li>
+                    <a href="#">My Orders</a>
+                </li>
+                <li>
+                    <a href="#">About Us</a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main>
+        <h1>Experience A Different Taste With Us!</h1>
+        <section id="products">
+            <ul>
+                <li class="food-items">
+                    <article>
+                        <img src="images/burger.png" alt="">
+                        <div class="food-items-content">
+                            <h2>Fpsum consectetur adipisicing elit.</h2>
+                            <a href="" class="btn">Add to Cart</a>
+                        </div>
+                    </article>
+                </li>
+                <li class="food-items">
+                    <article>
+                        <img src="images/mix-meal.png" alt="">
+                        <div class="food-items-content">
+                            <h2>Mpsum consectetur adipisicing elit.</h2>
+                            <a href="" class="btn">Add to Cart</a>
+                        </div>
+                    </article>
+                </li>
+                <li class="food-items">
+                    <article>
+                        <img src="images/Coke.png" alt="">
+                        <div class="food-items-content">
+                            <h2>Bpsum consectetur adipisicing elit.</h2>
+                            <a href="" class="btn">Add to Cart</a>
+                        </div>
+                    </article>
+                </li>
+                <li class="food-items">
+                    <article>
+                        <img src="images/pizza1.png" alt="">
+                        <div class="food-items-content">
+                            <h2>Rpsum consectetur adipisicing elit.</h2>
+                            <a href="" class="btn">Add to Cart</a>
+                        </div>
+                    </article>
+                </li>
+            </ul>
+        </section>
+    </main>
+    <hr>
+    <footer>
+        <p>Follow Us Here</p>
+        <ul>
+            <li><a href="https://www.instagram.com"><img src="images/insta.png" alt="Instagram logo"></a></li>
+            <li><a href="https://www.facebook.com"><img src="images/facebook.png" alt="Facebook logo"></a>
+            </li>
+            <li><a href="https://www.instagram.com"><img src="images/insta.png" alt="Instagram logo"></a></li>
+        </ul>
+        <p class="copyr">Copyrighted ©️ _ WebFood by Masooma Farrah</p>
+        <a href="">
+            <p>Learn More</p>
+        </a>
+    </footer>
+</body>
+
+</html>
